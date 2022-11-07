@@ -20,9 +20,9 @@ body {
 .display {
     display: flex;
     flex-direction: column;
-    min-height: 70px;
-    padding-left: 7px;
-    padding-right: 7px;
+    min-height: 90px;
+    padding-left: 13px;
+    padding-right: 13px;
     /* border: 2px solid blue; */
     background-color: #212121;
     justify-content: center;
@@ -31,15 +31,15 @@ body {
 }
 
 #result-display {
-    min-height: 40px;
+    min-height: 60px;
     background-color: #3B3B3B;
 }
 
 #calculator-body {
     display: grid;
-    padding: 7px;
+    padding: 13px;
     grid-template-columns: repeat(5, 1fr);
-    gap: 4px;
+    gap: 6px;
     /* border: 3px solid black; */
     background-color: #212121;
     border-bottom-left-radius: 15px;
@@ -49,7 +49,36 @@ body {
     padding: 15px;
     border-radius: 8px;
     background-color: #616161;
+    box-shadow: 4px 5px 5px 0px rgb(0 0 0 / 50%);
     color: white;
+    font-size: 1.3rem;
+    transition: 0.2s;
+    border: none;
+    cursor: pointer;
+}
+#equalBtn{
+    font-size: 1.325rem;
+}
+
+.digit:hover {
+    background-color: #c4b4ba;
+    /* background-color: #F96EE1; */
+    color: black;
+}
+
+.erase:hover {
+    background-color: #D83B3B;
+    color: black;
+}
+
+#equalBtn:hover{
+    background-color: #00FF41;
+    color: black;
+}
+
+.operator:hover {
+    background-color: #0074FE;
+    color: black;
 }
 
 #equalBtn {
