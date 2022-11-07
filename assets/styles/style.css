@@ -1,7 +1,6 @@
 body {
     display: flex;
     flex-direction: column;
-    /* width: 100vw; */
     height: 100vh;
     justify-content: center;
     margin: 0px;
@@ -23,7 +22,6 @@ body {
     min-height: 90px;
     padding-left: 13px;
     padding-right: 13px;
-    /* border: 2px solid blue; */
     background-color: #212121;
     justify-content: center;
     border-top-left-radius: 15px;
@@ -37,6 +35,8 @@ body {
     max-height: 60px;
     background-color: #3B3B3B;
     padding-right: 10px;
+    border-radius: 8px;
+    box-shadow: inset 2px 3px 5px 0px rgb(0 0 0 / 70%);
 }
 
 #result-display h2 {
@@ -49,7 +49,6 @@ body {
     padding: 13px;
     grid-template-columns: repeat(5, 1fr);
     gap: 6px;
-    /* border: 3px solid black; */
     background-color: #212121;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
@@ -65,13 +64,17 @@ body {
     border: none;
     cursor: pointer;
 }
+
 #equalBtn{
     font-size: 1.325rem;
 }
 
+.button:hover {
+    transform: translateY(-0.1rem);
+}
+
 .digit:hover {
     background-color: #c4b4ba;
-    /* background-color: #F96EE1; */
     color: black;
 }
 
