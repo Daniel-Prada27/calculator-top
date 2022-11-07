@@ -31,8 +31,17 @@ body {
 }
 
 #result-display {
+    display: flex;
+    justify-content: flex-end;
     min-height: 60px;
+    max-height: 60px;
     background-color: #3B3B3B;
+    padding-right: 10px;
+}
+
+#result-display h2 {
+    color: white;
+    padding-left: 3px;
 }
 
 #calculator-body {
