@@ -19,26 +19,53 @@ const tenBtn = document.getElementById("9");
 const zeroBtn = document.getElementById("0");
 const dotBtn = document.getElementById(".");
 
-const acBtn = document.getElementById("");
-const delBtn = document.getElementById("");
+const acBtn = document.getElementById("all-clear");
+const delBtn = document.getElementById("delete");
 
+// let currentNumber = document.getElementById('screen');
+display.textContent = "";
 
+everyButton = document.querySelectorAll('.digit');
 
-
-
-addBtn.addEventListener('click', () => {
-    //math
-})
-
-addBtn.addEventListener('click', () => {
-    //math
-})
-
-addBtn.addEventListener('click', () => {
-    //math
-})
+for(let i = 0; i < everyButton.length; i++){ //Displays the pressed button's id
+    everyButton[i].addEventListener('click', function(e){
+        display.textContent += e.srcElement.id;
+    })
+}
 
 addBtn.addEventListener('click', () => {
-    //math
+
+    // display.textContent += " + ";
+    let a = display.textContent;
+    display.textContent = "";
+    console.log(a);
 })
 
+subBtn.addEventListener('click', () => {
+    let a = display.textContent;
+    display.textContent = "";
+    console.log(a);
+})
+
+multiplyBtn.addEventListener('click', () => {
+    let a = display.textContent;
+    display.textContent = "";
+    console.log(a);
+})
+
+divideBtn.addEventListener('click', () => {
+    let a = display.textContent;
+    display.textContent = "";
+    console.log(a);
+})
+
+acBtn.addEventListener('click', () => {
+    display.textContent = "";
+})
+
+delBtn.addEventListener('click', () => {
+    let screenList = [...display.textContent]
+    screenList.pop();
+    let reformedNumber = screenList.join("");
+    display.textContent = reformedNumber;
+})
