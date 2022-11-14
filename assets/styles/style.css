@@ -61,6 +61,7 @@ a {
     height: fit-content;
     text-overflow: ellipsis;
     overflow: hidden;
+    user-select: none;
 }
 
 /* #screen {

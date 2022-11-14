@@ -37,7 +37,6 @@ for (let i = 0; i < everyDigitButton.length; i++) { //Displays the pressed butto
             idNumber = ".";
         }
 
-        
         if (shouldClear && display.textContent != "") {
             display.textContent = "";
             shouldClear = false;
@@ -108,6 +107,7 @@ function operate(operator) {
             display.textContent = "Nice try";
             content.pop();
             shouldClear = true;
+            operator = "none";
             return;
         }
         let division = numArr[0] / numArr[1];
