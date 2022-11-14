@@ -24,26 +24,42 @@ const acBtn = document.getElementById("all-clear");
 const delBtn = document.getElementById("delete");
 
 display.textContent = "";
-everyButton = document.querySelectorAll('.digit');
+everyDigitButton = document.querySelectorAll('.digit');
 let operator = "none";
 let content = [];
 let shouldClear = false;
 
-for (let i = 0; i < everyButton.length; i++) { //Displays the pressed button's id
-    everyButton[i].addEventListener('click', function (e) {
-        idNumber = parseFloat(e.srcElement.id)
+for (let i = 0; i < everyDigitButton.length; i++) { //Displays the pressed button's id
+    everyDigitButton[i].addEventListener('click', function (e) {
+        if(e.srcElement.id != "."){
+            idNumber = parseFloat(e.srcElement.id);
+        }else if(e.srcElement.id == "."){
+            idNumber = ".";
+        }
+
+        
         if (shouldClear && display.textContent != "") {
             display.textContent = "";
             shouldClear = false;
         }
-        display.textContent += idNumber;
-        console.log("content: " + content);
+        let aa = display.textContent;
+        let displayContainsDot = aa.match(/\./g) ? "true" : "false";
+        
+        if (idNumber != "."){
+            display.textContent += idNumber;
+        }else if (idNumber == "." && displayContainsDot == "false"){
+            display.textContent += idNumber;
+        }else if (idNumber == "." && displayContainsDot == "true"){
+            return;
+        }
+
+        aa = display.textContent;
     })
 }
 
 function filterResult() {
     let intArray = content.map(function (x) {
-        return parseInt(x, 10);
+        return parseFloat(x, 10);
     });
     let numberTypeArray = intArray.filter(item => typeof item === "number");
     let numbersArray = numberTypeArray.filter(item => typeof item === Boolean || item === 0 || typeof item === "number");
@@ -142,6 +158,7 @@ addBtn.addEventListener('click', () => {
             operator = "add";
         }
     }
+    
 })
 
 subBtn.addEventListener('click', () => {
@@ -285,36 +302,47 @@ window.addEventListener('keyup', function(e) {
     if(e.key == "1"){
         oneBtn.style.backgroundColor = "#616161";
         oneBtn.style.color = "white";
+        oneBtn.style.cssText = ".digit:hover{background-color: #c4b4ba;";
     }else if(e.key == "2"){
         twoBtn.style.backgroundColor = "#616161";
         twoBtn.style.color = "white";
+        twoBtn.style.cssText = ".digit:hover{background-color: #c4b4ba;";
     }else if(e.key == "3"){
         threeBtn.style.backgroundColor = "#616161";
         threeBtn.style.color = "white";
+        threeBtn.style.cssText = ".digit:hover{background-color: #c4b4ba;";
     }else if(e.key == "4"){
         fourBtn.style.backgroundColor = "#616161";
         fourBtn.style.color = "white";
+        fourBtn.style.cssText = ".digit:hover{background-color: #c4b4ba;";
     }else if(e.key == "5"){
         fiveBtn.style.backgroundColor = "#616161";
         fiveBtn.style.color = "white";
+        fiveBtn.style.cssText = ".digit:hover{background-color: #c4b4ba;";
     }else if(e.key == "6"){
         sixBtn.style.backgroundColor = "#616161";
         sixBtn.style.color = "white";
+        sixBtn.style.cssText = ".digit:hover{background-color: #c4b4ba;";
     }else if(e.key == "7"){
         sevenBtn.style.backgroundColor = "#616161";
         sevenBtn.style.color = "white";
+        sevenBtn.style.cssText = ".digit:hover{background-color: #c4b4ba;";
     }else if(e.key == "8"){
         eightBtn.style.backgroundColor = "#616161";
         eightBtn.style.color = "white";
+        eightBtn.style.cssText = ".digit:hover{background-color: #c4b4ba;";
     }else if(e.key == "9"){
         nineBtn.style.backgroundColor = "#616161";
         nineBtn.style.color = "white";
+        nineBtn.style.cssText = ".digit:hover{background-color: #c4b4ba;";
     }else if(e.key == "0"){
         zeroBtn.style.backgroundColor = "#616161";
         zeroBtn.style.color = "white";
+        zeroBtn.style.cssText = ".digit:hover{background-color: #c4b4ba;";
     }else if(e.key == "."){
         dotBtn.style.backgroundColor = "#616161";
         dotBtn.style.color = "white";
+        dotBtn.style.cssText = ".digit:hover{background-color: #c4b4ba;";
     }
 
     if(e.key == "Backspace"){
