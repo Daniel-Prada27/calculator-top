@@ -6,11 +6,15 @@ body {
     margin: 0px;
     background-color: #FCB31B;
 }
-
+a {
+    text-decoration: none;
+    color: inherit;
+}
 .main-container {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 140px;
 }
 .calculator {
     /* display: flex;
@@ -118,4 +122,15 @@ body {
 
 #equalBtn {
     grid-column: 3/6;
+}
+
+#credit {
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    color: #212121;
+    margin-top: auto;
+    margin-bottom: 0px;
+    padding: 0px;
+    max-height: 184px;
 }
