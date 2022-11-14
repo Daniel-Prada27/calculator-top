@@ -66,37 +66,34 @@ function operate(operator) {
     if (operator == "none") {
         return;
     }
-    filterResult();
+    let numArr = filterResult();
 
     if (operator == "add") {
-        let addition = filterResult()[0] + filterResult()[1];
+        let addition = numArr[0] + numArr[1];
         console.log(addition);
         display.textContent = addition;
         clearContent();
         content.push(addition);
-    }
-    if (operator == "sub") {
-        let subtraction = filterResult()[0] - filterResult()[1];
+    } else if (operator == "sub") {
+        let subtraction = numArr[0] - numArr[1];
         console.log(subtraction);
         display.textContent = subtraction;
         clearContent();
         content.push(subtraction);
-    }
-    if (operator == "multiply") {
-        let multiplication = filterResult()[0] * filterResult()[1];
+    } else if (operator == "multiply") {
+        let multiplication = numArr[0] * numArr[1];
         console.log(multiplication);
         display.textContent = multiplication;
         clearContent();
         content.push(multiplication);
-    }
-    if (operator == "divide") {
-        if (filterResult()[1] == 0) {
+    } else if (operator == "divide") {
+        if (numArr[1] == 0) {
             display.textContent = "Nice try";
             content.pop();
             shouldClear = true;
             return;
         }
-        let division = filterResult()[0] / filterResult()[1];
+        let division = numArr[0] / numArr[1];
         console.log(division);
         display.textContent = division;
         clearContent();
@@ -174,8 +171,8 @@ delBtn.addEventListener('click', () => {
 })
 
 equalBtn.addEventListener('click', () => {
-    if(display.textContent != "" && display.textContent != "Nice try"){
+    if (display.textContent != "" && display.textContent != "Nice try") {
         content.push(display.textContent);
-    operate(operator);
+        operate(operator);
     }
 })
