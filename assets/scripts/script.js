@@ -28,59 +28,69 @@ let operator = "none";
 let content = [];
 let shouldClear = false;
 
-for(let i = 0; i < everyButton.length; i++){ //Displays the pressed button's id
-    everyButton[i].addEventListener('click', function(e){
+for (let i = 0; i < everyButton.length; i++) { //Displays the pressed button's id
+    everyButton[i].addEventListener('click', function (e) {
         idNumber = parseFloat(e.srcElement.id)
         if (shouldClear && display.textContent != "") {
             display.textContent = "";
             shouldClear = false;
         }
         display.textContent += idNumber;
+        console.log("content: " + content);
     })
 }
 
 function filterResult() {
-    let intArray = content.map(function(x){
+    let intArray = content.map(function (x) {
         return parseInt(x, 10);
     });
     let numberTypeArray = intArray.filter(item => typeof item === "number");
-    let numbersArray = numberTypeArray.filter(Boolean);
+    let numbersArray = numberTypeArray.filter(item => typeof item === Boolean || item === 0 || typeof item === "number");
     return numbersArray;
 }
 
-function clearContent(){
+function clearContent() {
     content = [];
 }
 
-function operate(operator){
-    if(operator == "none"){
+function checkContent() {
+    if (typeof content[0] != "number") {
+        content.pop();
+    }
+}
+
+function operate(operator) {
+    if (content.length == 0) {
+        return;
+    }
+    if (operator == "none") {
         return;
     }
     filterResult();
 
-    if(operator == "add"){
+    if (operator == "add") {
         let addition = filterResult()[0] + filterResult()[1];
         console.log(addition);
         display.textContent = addition;
         clearContent();
         content.push(addition);
     }
-    if(operator == "sub"){
+    if (operator == "sub") {
         let subtraction = filterResult()[0] - filterResult()[1];
         console.log(subtraction);
         display.textContent = subtraction;
         clearContent();
         content.push(subtraction);
     }
-    if(operator == "multiply"){
+    if (operator == "multiply") {
         let multiplication = filterResult()[0] * filterResult()[1];
         console.log(multiplication);
         display.textContent = multiplication;
         clearContent();
         content.push(multiplication);
     }
-    if(operator == "divide"){
-        if (filterResult()[1] == 0){
+    if (operator == "divide") {
+        if (filterResult()[1] == 0) {
             display.textContent = "Nice try";
             return;
         }
@@ -94,40 +104,64 @@ function operate(operator){
 }
 
 addBtn.addEventListener('click', () => {
-    let a = display.textContent;
-    content.push(a);
-    display.textContent = "";
-    operate(operator);
-    operator = "add";
+    if (display.textContent != "") {
+
+
+        let a = display.textContent;
+        console.log(typeof a);
+        console.log(content);
+        if (a != "" && typeof a != "undefined") {
+            content.push(a);
+        }
+
+        display.textContent = "";
+        operate(operator);
+        if (operator != "add") {
+            operator = "add";
+        }
+    }
 })
 
 subBtn.addEventListener('click', () => {
-    let a = display.textContent;
-    content.push(a);
-    display.textContent = "";
-    operate(operator);
-    operator = "sub";
+    if (display.textContent != "") {
+        let a = display.textContent;
+        if (a != "") {
+            content.push(a);
+        }
+        display.textContent = "";
+        operate(operator);
+        operator = "sub";
+    }
 })
 
 multiplyBtn.addEventListener('click', () => {
-    let a = display.textContent;
-    content.push(a);
-    display.textContent = "";
-    operate(operator);
-    operator = "multiply";
+    if (display.textContent != "") {
+        let a = display.textContent;
+        if (a != "") {
+            content.push(a);
+        }
+        display.textContent = "";
+        operate(operator);
+        operator = "multiply";
+    }
 })
 
 divideBtn.addEventListener('click', () => {
-    let a = display.textContent;
-    content.push(a);
-    display.textContent = "";
-    operate(operator);
-    operator = "divide";
+    if (display.textContent != "") {
+        let a = display.textContent;
+        if (a != "") {
+            content.push(a);
+        }
+        display.textContent = "";
+        operate(operator);
+        operator = "divide";
+    }
 })
 
 acBtn.addEventListener('click', () => {
     display.textContent = "";
     clearContent();
+    operator = "none";
 })
 
 delBtn.addEventListener('click', () => {
@@ -135,4 +169,11 @@ delBtn.addEventListener('click', () => {
     screenList.pop();
     let reformedNumber = screenList.join("");
     display.textContent = reformedNumber;
+})
+
+equalBtn.addEventListener('click', () => {
+    if(display.textContent != ""){
+        content.push(display.textContent);
+    operate(operator);
+    }
 })
