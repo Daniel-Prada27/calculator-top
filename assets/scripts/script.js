@@ -22,45 +22,112 @@ const dotBtn = document.getElementById(".");
 const acBtn = document.getElementById("all-clear");
 const delBtn = document.getElementById("delete");
 
-// let currentNumber = document.getElementById('screen');
 display.textContent = "";
-
 everyButton = document.querySelectorAll('.digit');
+let operator = "none";
+let content = [];
+let shouldClear = false;
 
 for(let i = 0; i < everyButton.length; i++){ //Displays the pressed button's id
     everyButton[i].addEventListener('click', function(e){
-        display.textContent += e.srcElement.id;
+        idNumber = parseFloat(e.srcElement.id)
+        if (shouldClear && display.textContent != "") {
+            display.textContent = "";
+            shouldClear = false;
+        }
+        display.textContent += idNumber;
     })
 }
 
-addBtn.addEventListener('click', () => {
+function filterResult() {
+    let intArray = content.map(function(x){
+        return parseInt(x, 10);
+    });
+    let numberTypeArray = intArray.filter(item => typeof item === "number");
+    let numbersArray = numberTypeArray.filter(Boolean);
+    return numbersArray;
+}
 
-    // display.textContent += " + ";
+function clearContent(){
+    content = [];
+}
+
+function operate(operator){
+    if(operator == "none"){
+        return;
+    }
+    filterResult();
+
+    if(operator == "add"){
+        let addition = filterResult()[0] + filterResult()[1];
+        console.log(addition);
+        display.textContent = addition;
+        clearContent();
+        content.push(addition);
+    }
+    if(operator == "sub"){
+        let subtraction = filterResult()[0] - filterResult()[1];
+        console.log(subtraction);
+        display.textContent = subtraction;
+        clearContent();
+        content.push(subtraction);
+    }
+    if(operator == "multiply"){
+        let multiplication = filterResult()[0] * filterResult()[1];
+        console.log(multiplication);
+        display.textContent = multiplication;
+        clearContent();
+        content.push(multiplication);
+    }
+    if(operator == "divide"){
+        if (filterResult()[1] == 0){
+            display.textContent = "Nice try";
+            return;
+        }
+        let division = filterResult()[0] / filterResult()[1];
+        console.log(division);
+        display.textContent = division;
+        clearContent();
+        content.push(division);
+    }
+    shouldClear = true;
+}
+
+addBtn.addEventListener('click', () => {
     let a = display.textContent;
+    content.push(a);
     display.textContent = "";
-    console.log(a);
+    operate(operator);
+    operator = "add";
 })
 
 subBtn.addEventListener('click', () => {
     let a = display.textContent;
+    content.push(a);
     display.textContent = "";
-    console.log(a);
+    operate(operator);
+    operator = "sub";
 })
 
 multiplyBtn.addEventListener('click', () => {
     let a = display.textContent;
+    content.push(a);
     display.textContent = "";
-    console.log(a);
+    operate(operator);
+    operator = "multiply";
 })
 
 divideBtn.addEventListener('click', () => {
     let a = display.textContent;
+    content.push(a);
     display.textContent = "";
-    console.log(a);
+    operate(operator);
+    operator = "divide";
 })
 
 acBtn.addEventListener('click', () => {
     display.textContent = "";
+    clearContent();
 })
 
 delBtn.addEventListener('click', () => {
