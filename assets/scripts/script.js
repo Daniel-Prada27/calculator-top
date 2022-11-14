@@ -14,8 +14,8 @@ const fourBtn = document.getElementById("4");
 const fiveBtn = document.getElementById("5");
 const sixBtn = document.getElementById("6");
 const sevenBtn = document.getElementById("7");
-const nineBtn = document.getElementById("8");
-const tenBtn = document.getElementById("9");
+const eightBtn = document.getElementById("8");
+const nineBtn = document.getElementById("9");
 const zeroBtn = document.getElementById("0");
 const dotBtn = document.getElementById(".");
 
@@ -222,3 +222,55 @@ equalBtn.addEventListener('click', () => {
         operate(operator);
     }
 })
+
+equalBtn.addEventListener('mousedown', () => {
+    equalBtn.style.backgroundColor = "#00FF41"
+        equalBtn.style.color = "black";
+})
+
+
+const readKey = window.addEventListener('keydown', function (e) {
+    if(e.key == "1"){
+        oneBtn.click();
+    }else if(e.key == "2"){
+        twoBtn.click();
+    }else if(e.key == "3"){
+        threeBtn.click();
+    }else if(e.key == "4"){
+        fourBtn.click();
+    }else if(e.key == "5"){
+        fiveBtn.click();
+    }else if(e.key == "6"){
+        sixBtn.click();
+    }else if(e.key == "7"){
+        sevenBtn.click();
+    }else if(e.key == "8"){
+        eightBtn.click();
+    }else if(e.key == "9"){
+        nineBtn.click();
+    }else if(e.key == "0"){
+        zeroBtn.click();
+    }
+
+    if(e.key == "+"){
+        addBtn.click();
+    }else if(e.key == "-"){
+        subBtn.click();
+    }else if(e.key == "*" || e.key == "x"){
+        multiplyBtn.click();
+    }else if(e.key == "/"){
+        divideBtn.click();
+    }else if (e.key == "=" || e.key == "Enter"){
+        equalBtn.click();
+    }
+
+    if(e.key == "Backspace"){
+        del.click();
+    }else if(e.key == "Delete"){
+        acBtn.click();
+    }
+
+    if(e.key == "."){
+        dotBtn.click();
+    }
+  }, false);
