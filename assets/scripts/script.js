@@ -92,6 +92,8 @@ function operate(operator) {
     if (operator == "divide") {
         if (filterResult()[1] == 0) {
             display.textContent = "Nice try";
+            content.pop();
+            shouldClear = true;
             return;
         }
         let division = filterResult()[0] / filterResult()[1];
@@ -104,7 +106,7 @@ function operate(operator) {
 }
 
 addBtn.addEventListener('click', () => {
-    if (display.textContent != "") {
+    if (display.textContent != "" && display.textContent != "Nice try") {
 
 
         let a = display.textContent;
@@ -123,7 +125,7 @@ addBtn.addEventListener('click', () => {
 })
 
 subBtn.addEventListener('click', () => {
-    if (display.textContent != "") {
+    if (display.textContent != "" && display.textContent != "Nice try") {
         let a = display.textContent;
         if (a != "") {
             content.push(a);
@@ -135,7 +137,7 @@ subBtn.addEventListener('click', () => {
 })
 
 multiplyBtn.addEventListener('click', () => {
-    if (display.textContent != "") {
+    if (display.textContent != "" && display.textContent != "Nice try") {
         let a = display.textContent;
         if (a != "") {
             content.push(a);
@@ -147,7 +149,7 @@ multiplyBtn.addEventListener('click', () => {
 })
 
 divideBtn.addEventListener('click', () => {
-    if (display.textContent != "") {
+    if (display.textContent != "" && display.textContent != "Nice try") {
         let a = display.textContent;
         if (a != "") {
             content.push(a);
@@ -172,7 +174,7 @@ delBtn.addEventListener('click', () => {
 })
 
 equalBtn.addEventListener('click', () => {
-    if(display.textContent != ""){
+    if(display.textContent != "" && display.textContent != "Nice try"){
         content.push(display.textContent);
     operate(operator);
     }
