@@ -1,4 +1,5 @@
-const display = document.getElementById("screen")
+const display = document.getElementById("screen");
+const actualBody = document.getElementById("wholeBody");
 
 const addBtn = document.getElementById("addBtn");
 const subBtn = document.getElementById("subBtn");
@@ -223,9 +224,107 @@ equalBtn.addEventListener('click', () => {
     }
 })
 
-equalBtn.addEventListener('mousedown', () => {
-    equalBtn.style.backgroundColor = "#00FF41"
-        equalBtn.style.color = "black";
+window.addEventListener('keydown', function(e)  {
+    if (e.key == "=" || e.key == "Enter"){
+    equalBtn.style.backgroundColor = "#00FF41";
+    equalBtn.style.color = "black";
+    }
+
+    if(e.key == "1"){
+        oneBtn.style.backgroundColor = "#c4b4ba";
+        oneBtn.style.color = "black";
+    }else if(e.key == "2"){
+        twoBtn.style.backgroundColor = "#c4b4ba";
+        twoBtn.style.color = "black";
+    }else if(e.key == "3"){
+        threeBtn.style.backgroundColor = "#c4b4ba";
+        threeBtn.style.color = "black";
+    }else if(e.key == "4"){
+        fourBtn.style.backgroundColor = "#c4b4ba";
+        fourBtn.style.color = "black";
+    }else if(e.key == "5"){
+        fiveBtn.style.backgroundColor = "#c4b4ba";
+        fiveBtn.style.color = "black";
+    }else if(e.key == "6"){
+        sixBtn.style.backgroundColor = "#c4b4ba";
+        sixBtn.style.color = "black";
+    }else if(e.key == "7"){
+        sevenBtn.style.backgroundColor = "#c4b4ba";
+        sevenBtn.style.color = "black";
+    }else if(e.key == "8"){
+        eightBtn.style.backgroundColor = "#c4b4ba";
+        eightBtn.style.color = "black";
+    }else if(e.key == "9"){
+        nineBtn.style.backgroundColor = "#c4b4ba";
+        nineBtn.style.color = "black";
+    }else if(e.key == "0"){
+        zeroBtn.style.backgroundColor = "#c4b4ba";
+        zeroBtn.style.color = "black";
+    }else if(e.key == "."){
+        dotBtn.style.backgroundColor = "#c4b4ba";
+        dotBtn.style.color = "black";
+    }
+
+    if(e.key == "Backspace"){
+        delBtn.style.backgroundColor = "#D83B3B";
+        delBtn.style.color = "black";
+    }else if(e.key == "Delete"){
+        acBtn.style.backgroundColor = "#D83B3B";
+        acBtn.style.color = "black";
+    }
+    
+    console.log(e.key);
+})
+
+window.addEventListener('keyup', function(e) {
+    if(e.key == "=" || e.key == "Enter"){
+    equalBtn.style.backgroundColor = "#616161"
+    equalBtn.style.color = "white";
+    }
+
+    if(e.key == "1"){
+        oneBtn.style.backgroundColor = "#616161";
+        oneBtn.style.color = "white";
+    }else if(e.key == "2"){
+        twoBtn.style.backgroundColor = "#616161";
+        twoBtn.style.color = "white";
+    }else if(e.key == "3"){
+        threeBtn.style.backgroundColor = "#616161";
+        threeBtn.style.color = "white";
+    }else if(e.key == "4"){
+        fourBtn.style.backgroundColor = "#616161";
+        fourBtn.style.color = "white";
+    }else if(e.key == "5"){
+        fiveBtn.style.backgroundColor = "#616161";
+        fiveBtn.style.color = "white";
+    }else if(e.key == "6"){
+        sixBtn.style.backgroundColor = "#616161";
+        sixBtn.style.color = "white";
+    }else if(e.key == "7"){
+        sevenBtn.style.backgroundColor = "#616161";
+        sevenBtn.style.color = "white";
+    }else if(e.key == "8"){
+        eightBtn.style.backgroundColor = "#616161";
+        eightBtn.style.color = "white";
+    }else if(e.key == "9"){
+        nineBtn.style.backgroundColor = "#616161";
+        nineBtn.style.color = "white";
+    }else if(e.key == "0"){
+        zeroBtn.style.backgroundColor = "#616161";
+        zeroBtn.style.color = "white";
+    }else if(e.key == "."){
+        dotBtn.style.backgroundColor = "#616161";
+        dotBtn.style.color = "white";
+    }
+
+    if(e.key == "Backspace"){
+        delBtn.style.backgroundColor = "#616161";
+        delBtn.style.color = "white";
+    }else if(e.key == "Delete"){
+        acBtn.style.backgroundColor = "#616161";
+        acBtn.style.color = "white";
+    }
+    console.log(e.key + "Keyup");
 })
 
 
@@ -265,7 +364,7 @@ const readKey = window.addEventListener('keydown', function (e) {
     }
 
     if(e.key == "Backspace"){
-        del.click();
+        delBtn.click();
     }else if(e.key == "Delete"){
         acBtn.click();
     }

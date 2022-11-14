@@ -88,6 +88,11 @@ body {
     color: black;
 }
 
+#equalBtn:active {
+    background-color: #00FF41;
+    color: black;
+}
+
 .operator:hover {
     background-color: #0074FE;
     color: black;
