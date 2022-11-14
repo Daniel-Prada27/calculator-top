@@ -102,17 +102,39 @@ function operate(operator) {
     shouldClear = true;
 }
 
+function selectedButtonColor(button){
+    button.style.backgroundColor = "#0074FE";
+    button.style.color = "black";
+}
+
+function unColorButtons(){
+    subBtn.style.backgroundColor = "#616161";
+    subBtn.style.color = "white";
+    multiplyBtn.style.backgroundColor = "#616161";
+    multiplyBtn.style.color = "white";
+    divideBtn.style.backgroundColor = "#616161";
+    divideBtn.style.color = "white";
+    addBtn.style.backgroundColor = "#616161";
+    addBtn.style.color = "white";
+}
+
 addBtn.addEventListener('click', () => {
+
+    selectedButtonColor(addBtn);
+    subBtn.style.backgroundColor = "#616161";
+    subBtn.style.color = "white";
+    multiplyBtn.style.backgroundColor = "#616161";
+    multiplyBtn.style.color = "white";
+    divideBtn.style.backgroundColor = "#616161";
+    divideBtn.style.color = "white";
+    
     if (display.textContent != "" && display.textContent != "Nice try") {
-
-
         let a = display.textContent;
         console.log(typeof a);
         console.log(content);
         if (a != "" && typeof a != "undefined") {
             content.push(a);
         }
-
         display.textContent = "";
         operate(operator);
         if (operator != "add") {
@@ -122,6 +144,13 @@ addBtn.addEventListener('click', () => {
 })
 
 subBtn.addEventListener('click', () => {
+    selectedButtonColor(subBtn);
+    addBtn.style.backgroundColor = "#616161";
+    addBtn.style.color = "white";
+    multiplyBtn.style.backgroundColor = "#616161";
+    multiplyBtn.style.color = "white";
+    divideBtn.style.backgroundColor = "#616161";
+    divideBtn.style.color = "white";
     if (display.textContent != "" && display.textContent != "Nice try") {
         let a = display.textContent;
         if (a != "") {
@@ -134,6 +163,13 @@ subBtn.addEventListener('click', () => {
 })
 
 multiplyBtn.addEventListener('click', () => {
+    selectedButtonColor(multiplyBtn);
+    subBtn.style.backgroundColor = "#616161";
+    subBtn.style.color = "white";
+    addBtn.style.backgroundColor = "#616161";
+    addBtn.style.color = "white";
+    divideBtn.style.backgroundColor = "#616161";
+    divideBtn.style.color = "white";
     if (display.textContent != "" && display.textContent != "Nice try") {
         let a = display.textContent;
         if (a != "") {
@@ -146,6 +182,13 @@ multiplyBtn.addEventListener('click', () => {
 })
 
 divideBtn.addEventListener('click', () => {
+    selectedButtonColor(divideBtn);
+    subBtn.style.backgroundColor = "#616161";
+    subBtn.style.color = "white";
+    multiplyBtn.style.backgroundColor = "#616161";
+    multiplyBtn.style.color = "white";
+    addBtn.style.backgroundColor = "#616161";
+    addBtn.style.color = "white";
     if (display.textContent != "" && display.textContent != "Nice try") {
         let a = display.textContent;
         if (a != "") {
@@ -158,12 +201,14 @@ divideBtn.addEventListener('click', () => {
 })
 
 acBtn.addEventListener('click', () => {
+    unColorButtons();
     display.textContent = "";
     clearContent();
     operator = "none";
 })
 
 delBtn.addEventListener('click', () => {
+    unColorButtons();
     let screenList = [...display.textContent]
     screenList.pop();
     let reformedNumber = screenList.join("");
@@ -171,6 +216,7 @@ delBtn.addEventListener('click', () => {
 })
 
 equalBtn.addEventListener('click', () => {
+    unColorButtons();
     if (display.textContent != "" && display.textContent != "Nice try") {
         content.push(display.textContent);
         operate(operator);
